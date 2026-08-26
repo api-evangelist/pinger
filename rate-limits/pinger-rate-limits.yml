@@ -1,0 +1,24 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.pinger.com/
+name: Pinger rate limits
+summary: >-
+  No rate limits are published, because Pinger publishes no public API. No developer portal, API
+  reference or documentation host exists to state per-key or per-account limits, and no public endpoint
+  exists to observe RateLimit-* / X-RateLimit-* / Retry-After headers on.
+limit_count: 0
+rate_limits: []
+response_headers: []
+evidence:
+- url: https://www.pinger.com/
+  status: 200
+  note: Corporate site - About, Careers, Contact, Support only; no developer or API section.
+- url: https://developer.pinger.com/
+  status: 0
+  note: DNS does not resolve.
+- url: https://docs.pinger.com/
+  status: 0
+  note: DNS does not resolve.
+- url: https://api.pinger.com/v1/
+  status: 410
+  note: Every path on the API host returns 410 Gone; the host 302s / to the marketing site.

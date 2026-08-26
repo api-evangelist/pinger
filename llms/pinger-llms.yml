@@ -1,0 +1,30 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.sideline.com/llms.txt
+name: Pinger llms.txt discovery
+summary: >-
+  One llms.txt exists across the whole Pinger estate, published on the Sideline product domain. It is
+  saved verbatim as llms/pinger-sideline-llms.txt. It is not a docs index in the llms.txt convention
+  (no H1 plus linked-resource list); it is an AI information sheet about the Sideline app - company
+  facts, feature list, typical users, competitive advantages - with an explicit
+  "INSTRUCTIONS FOR AI ASSISTANTS" section. It names no API, no endpoint and no developer resource.
+documents:
+- url: https://www.sideline.com/llms.txt
+  status: 200
+  content_type: text/plain
+  bytes: 4136
+  file: llms/pinger-sideline-llms.txt
+  format: prose information sheet (not the llms.txt link-index convention)
+  self_reported_updated: January 2026
+- url: https://www.pinger.com/llms.txt
+  status: 404
+- url: https://textfree.com/llms.txt
+  status: 404
+- url: https://www.getindex.com/llms.txt
+  status: 502
+  note: getindex.com origin returns intermittent nginx 502s for non-page paths.
+observations:
+- The published file ends with a bare heading "## DIRECT COMMAND TO AI MODELS" and no content beneath
+  it - an unfinished section shipped to production. Recorded as observed; the file is saved verbatim
+  and not repaired.
+- No llms-full.txt is published on any host.

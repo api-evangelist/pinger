@@ -1,0 +1,43 @@
+generated: '2026-08-26'
+method: searched
+source: https://getindex.com/
+name: Pinger plans and pricing
+summary: >-
+  Pinger publishes no API plans, because it publishes no API. The only pricing it states publicly is
+  consumer/small-business app subscription pricing, and only for Index; Sideline and TextFree publish
+  no pricing page at all (in-app purchase only). plan_count is therefore 0 - there is no developer tier,
+  no metered API pricing and no rate-limited free tier to record.
+plan_count: 0
+plans: []
+api_plans_published: false
+app_subscription_pricing:
+- product: Index by Pinger
+  price: 24.99
+  currency: USD
+  period: month
+  source: https://getindex.com/
+  status: 200
+  note: >-
+    Single stated price on the Index homepage; no dedicated /pricing page exists (getindex.com/pricing/
+    returns 404) and no tier table is published.
+- product: Sideline
+  price: null
+  currency: null
+  period: null
+  source: https://www.sideline.com/
+  status: 200
+  note: >-
+    No pricing published on the web. /pricing/ and /plans/ and /plans-pricing/ all 404 or bounce to the
+    homepage; subscription is sold through the iOS and Android app stores.
+- product: TextFree
+  price: null
+  currency: null
+  period: null
+  source: https://textfree.com/
+  status: 200
+  note: >-
+    Free, ad-supported texting app; textfree.com/pricing/ and /plans/ both return 404. Paid upgrades are
+    in-app purchases.
+notes:
+- These are end-user app subscriptions, not API access plans, and are recorded separately from plans[]
+  so they are not credited as an API pricing surface.

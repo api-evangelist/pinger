@@ -64,5 +64,48 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Pinger is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Pinger, Inc. is a San Jose, California mobile communications company founded in 2005 by former Palm
+managers Greg Woock and Joe Sipher. It builds consumer and small-business calling and texting apps —
+**TextFree** (2009, the original free texting app with a free US phone number), **Sideline** (a second
+phone number for work and privacy) and **Index** (a dedicated business line with auto-reply,
+scheduling, broadcast messaging and payment collection). Sideline and TextFree have together been used
+by more than 100 million people.
+
+## API surface
+
+**Pinger publishes no public API.** This was checked, not assumed:
+
+| Probe | Result |
+|---|---|
+| `developer.pinger.com`, `docs.pinger.com` | DNS does not resolve |
+| `api.pinger.com/` | 302 → `www.pinger.com` |
+| `api.pinger.com/v1/`, `/1.0/`, `/docs`, `/openapi.json`, `/swagger.json`, `/api-docs` | **410 Gone** |
+| `api.pinger.com/.well-known/*` | 403 |
+| `/openapi.json` on pinger.com, sideline.com, textfree.com, getindex.com | 404 |
+| `/.well-known/agent-card.json` and `/.well-known/agent.json` on every host | 404 (HTML) — no A2A agent card |
+| `/.well-known/security.txt`, `/openid-configuration`, `/oauth-authorization-server`, `/api-catalog`, `/ai-plugin.json` on 7 hosts | 404 / 403 / 502 — nothing served |
+| GitHub organization `pinger` / `pinger-inc` | 404 — no org |
+| npm, PyPI first-party SDK | none |
+
+Pinger's integrations run the other direction: Index *consumes* third-party calendar (Google, iCloud,
+Outlook) and payment (PayPal, Venmo, Square) services rather than exposing its own.
+
+## What is in this repository
+
+- `llms/pinger-sideline-llms.txt` — the one machine-readable document on the estate, served verbatim
+  at `https://www.sideline.com/llms.txt` (200). It is an AI information sheet about the Sideline app,
+  not an llms.txt link index, and it names no API.
+- `llms/pinger-llms.yml` — where that file came from, plus the 404/502 on the other hosts.
+- `well-known/pinger-well-known.yml` — the full `/.well-known/*` probe matrix across seven hosts.
+- `security/pinger-domain-security.yml` — TLS/HSTS/DNSSEC/CAA/SPF/DMARC across the four Pinger domains.
+- `plans/pinger-plans-pricing.yml` — no API plans; the only published price is Index at $24.99/month.
+- `rate-limits/pinger-rate-limits.yml` — no published limits, because there is no public API.
+
+## Links
+
+- Website — https://www.pinger.com/
+- About — https://www.pinger.com/about/
+- Support — https://www.pinger.com/support/
+- Terms — https://www.pinger.com/terms-and-conditions/
+- Privacy — https://www.pinger.com/privacy-policy/
+- Products — https://textfree.com/ · https://www.sideline.com/ · https://getindex.com/

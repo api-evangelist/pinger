@@ -1,0 +1,137 @@
+generated: '2026-08-26'
+method: probed
+source: live HTTP probes of /.well-known/* on every Pinger-controlled host
+name: Pinger well-known probe
+summary: No /.well-known document is served on any Pinger host. Every path on the marketing and web-app
+  hosts returns 404 (getindex.com additionally 502s intermittently behind its nginx origin), and every
+  path on api.pinger.com returns 403 from the edge. No WellKnown or SecurityTxt pointer is emitted, because
+  nothing was served.
+hosts:
+- host: www.pinger.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+- host: textfree.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+- host: www.sideline.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+- host: getindex.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 502
+    file: null
+- host: api.pinger.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 403
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    file: null
+  - path: /.well-known/api-catalog
+    status: 403
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    file: null
+- host: messages.sideline.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+- host: app.getindex.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+notes:
+- www.pinger.com, textfree.com and www.sideline.com are WordPress marketing sites; /.well-known/security.txt
+  returns a bare nginx 404 while the other paths fall through to the WordPress 404 template (HTML, 404
+  status) - neither is a document.
+- api.pinger.com resolves through Cloudflare, 302s / to www.pinger.com, returns 410 Gone for /v1/, /1.0/,
+  /docs, /openapi.json, /swagger.json, /api-docs and 403 for every /.well-known/* path. It is a retired
+  or private mobile-app backend, not a published API.
+- messages.sideline.com (Sideline web messaging) and app.getindex.com (Index web app) are SPA shells that
+  answer 404 with the app HTML for unknown paths.

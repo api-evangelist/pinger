@@ -1,17 +1,34 @@
 aid: pinger
 name: Pinger
-description: 'Pinger is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Pinger, Inc. is a San Jose, California mobile communications company founded
+  in 2005 by former Palm managers Greg Woock and Joe Sipher. It builds consumer and small-business
+  calling and texting apps rather than developer infrastructure: TextFree (launched 2009, the
+  original free texting and calling app with a free US phone number), Sideline (a second phone
+  number for work and privacy, with team number sharing, spam filtering, auto-reply and voicemail
+  transcription) and Index (a dedicated business line with auto-reply, scheduling, broadcast
+  messaging and payment collection). Sideline and TextFree have together been used by more than
+  100 million people. Pinger publishes no public developer program, API reference, OpenAPI
+  definition or SDK — its integrations run the other way, with Index consuming third-party
+  calendar (Google, iCloud, Outlook) and payment (PayPal, Venmo, Square) services. The one
+  machine-readable artifact it publishes is an llms.txt information sheet on the Sideline domain.'
 url: https://raw.githubusercontent.com/api-evangelist/pinger/refs/heads/main/apis.yml
+image: https://www.pinger.com/wp-content/uploads/2021/11/pinger_new@2x-277x300.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Communications
+- Telecommunications
+- Messaging
+- SMS
+- Voice
+- Mobile Applications
+- Phone Numbers
+- Consumer Applications
+- Small Business
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +36,52 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/pinger-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.pinger.com/
+- type: About
+  url: https://www.pinger.com/about/
+- type: Support
+  url: https://www.pinger.com/support/
+- type: HelpCenter
+  url: https://support.sideline.com/hc/en-us
+- type: TermsOfService
+  url: https://www.pinger.com/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://www.pinger.com/privacy-policy/
+- type: Product
+  url: https://textfree.com/
+- type: Product
+  url: https://www.sideline.com/
+- type: Product
+  url: https://getindex.com/
+- type: LLMsTxt
+  url: llms/pinger-sideline-llms.txt
+- type: Plans
+  url: plans/pinger-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/pinger-rate-limits.yml
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 6
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Pinger ships only end-user apps (TextFree, Sideline, Index) - there is no developer site
+    (developer.pinger.com and docs.pinger.com do not resolve in DNS), and api.pinger.com is a
+    retired or private mobile-app backend that 302s its root to the marketing site and returns
+    410 Gone for every path probed.
+  evidence:
+  - url: https://api.pinger.com/v1/
+    status: 410
+  - url: https://www.pinger.com/openapi.json
+    status: 404
+  - url: https://www.pinger.com/.well-known/api-catalog
+    status: 404
+  - url: https://www.sideline.com/llms.txt
+    status: 200
+  checked: '2026-08-26'
