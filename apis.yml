@@ -12,6 +12,17 @@ description: 'Pinger, Inc. is a San Jose, California mobile communications compa
   calendar (Google, iCloud, Outlook) and payment (PayPal, Venmo, Square) services. The one
   machine-readable artifact it publishes is an llms.txt information sheet on the Sideline domain.'
 url: https://raw.githubusercontent.com/api-evangelist/pinger/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.pinger.com/wp-content/uploads/2021/11/pinger_new@2x-277x300.png
 x-type: company
 x-source: harvest:secondary-market
