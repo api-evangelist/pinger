@@ -64,48 +64,94 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Pinger, Inc. is a San Jose, California mobile communications company founded in 2005 by former Palm
-managers Greg Woock and Joe Sipher. It builds consumer and small-business calling and texting apps —
-**TextFree** (2009, the original free texting app with a free US phone number), **Sideline** (a second
-phone number for work and privacy) and **Index** (a dedicated business line with auto-reply,
-scheduling, broadcast messaging and payment collection). Sideline and TextFree have together been used
-by more than 100 million people.
+Pinger, Inc. is a San Jose, California mobile communications company founded in 2005 by former Palm managers Greg Woock and Joe Sipher. It builds consumer and small-business calling and texting apps rather than developer infrastructure: TextFree (launched 2009, the original free texting and calling app with a free US phone number), Sideline (a second phone number for work and privacy, with team number sharing, spam filtering, auto-reply and voicemail transcription) and Index (a dedicated business line with auto-reply, scheduling, broadcast messaging and payment collection). Sideline and TextFree have together been used by more than 100 million people. Pinger publishes no public developer program, API reference, OpenAPI definition or SDK — its integrations run the other way, with Index consuming third-party calendar (Google, iCloud, Outlook) and payment (PayPal, Venmo, Square) services. The one machine-readable artifact it publishes is an llms.txt information sheet on the Sideline domain.
 
-## API surface
+**Areas:** Company · Communications · Telecommunications · Messaging · SMS · Voice · Mobile App · Phone Numbers · Consumer Applications · Small Business
 
-**Pinger publishes no public API.** This was checked, not assumed:
+## Pinger on APIs.io
 
-| Probe | Result |
+Everything profiled for Pinger is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pinger/](https://apis.io/providers/pinger/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Pinger Domain Security](https://apis.io/security/pinger/pinger-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Pinger Plans Pricing](https://apis.io/plans/pinger/pinger-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Pinger Rate Limits](https://apis.io/rate-limits/pinger/pinger-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.pinger.com/)
+- [Support](https://www.pinger.com/support/)
+- [Terms of service](https://www.pinger.com/terms-and-conditions/)
+- [Privacy policy](https://www.pinger.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 9.4** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| `developer.pinger.com`, `docs.pinger.com` | DNS does not resolve |
-| `api.pinger.com/` | 302 → `www.pinger.com` |
-| `api.pinger.com/v1/`, `/1.0/`, `/docs`, `/openapi.json`, `/swagger.json`, `/api-docs` | **410 Gone** |
-| `api.pinger.com/.well-known/*` | 403 |
-| `/openapi.json` on pinger.com, sideline.com, textfree.com, getindex.com | 404 |
-| `/.well-known/agent-card.json` and `/.well-known/agent.json` on every host | 404 (HTML) — no A2A agent card |
-| `/.well-known/security.txt`, `/openid-configuration`, `/oauth-authorization-server`, `/api-catalog`, `/ai-plugin.json` on 7 hosts | 404 / 403 / 502 — nothing served |
-| GitHub organization `pinger` / `pinger-inc` | 404 — no org |
-| npm, PyPI first-party SDK | none |
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 4.8 |
+| Access clarity | 21.1 |
 
-Pinger's integrations run the other direction: Index *consumes* third-party calendar (Google, iCloud,
-Outlook) and payment (PayPal, Venmo, Square) services rather than exposing its own.
+**Agent readiness 2.5** — human-only
 
-## What is in this repository
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-- `llms/pinger-sideline-llms.txt` — the one machine-readable document on the estate, served verbatim
-  at `https://www.sideline.com/llms.txt` (200). It is an AI information sheet about the Sideline app,
-  not an llms.txt link index, and it names no API.
-- `llms/pinger-llms.yml` — where that file came from, plus the 404/502 on the other hosts.
-- `well-known/pinger-well-known.yml` — the full `/.well-known/*` probe matrix across seven hosts.
-- `security/pinger-domain-security.yml` — TLS/HSTS/DNSSEC/CAA/SPF/DMARC across the four Pinger domains.
-- `plans/pinger-plans-pricing.yml` — no API plans; the only published price is Index at $24.99/month.
-- `rate-limits/pinger-rate-limits.yml` — no published limits, because there is no public API.
+**Regulatory alignment 11.7** — Telecommunications
 
-## Links
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pinger/](https://apis.io/providers/pinger/).
 
-- Website — https://www.pinger.com/
-- About — https://www.pinger.com/about/
-- Support — https://www.pinger.com/support/
-- Terms — https://www.pinger.com/terms-and-conditions/
-- Privacy — https://www.pinger.com/privacy-policy/
-- Products — https://textfree.com/ · https://www.sideline.com/ · https://getindex.com/
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Pinger: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pinger/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
